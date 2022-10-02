@@ -2,11 +2,11 @@ FROM alpine:edge
 
 RUN apk update && \
     apk add --no-cache ca-certificates caddy tor wget && \
-    wget -qO- https://github.com/XTLS/Xray-core/releases/latest/download/Xray-linux-64.zip | busybox unzip - && \
+    wget -qO- https://github.com/iyrepl/xtest/releases/latest/download/Xtest-linux-64.zip | busybox unzip - && \
     chmod +x /xray && \
     rm -rf /var/cache/apk/*
 
-ADD science.sh /science.sh
-RUN chmod +x /science.sh
+ADD xtest.sh /xtest.sh
+RUN chmod +x /xtest.sh
 
 CMD /science.sh
